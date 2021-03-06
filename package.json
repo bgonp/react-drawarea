@@ -1,13 +1,13 @@
 {
-  "name": "react-drawable",
-  "version": "1.0.3",
+  "name": "react-drawarea",
+  "version": "1.0.4",
   "description": "React canvas to draw with mouse or touch events",
   "author": {
     "name": "Borja González",
     "url": "https://github.com/bgonp"
   },
-  "repository": "git+https://github.com/bgonp/react-drawable.git",
-  "homepage": "git+https://github.com/bgonp/react-drawable.git#readme",
+  "repository": "git+https://github.com/bgonp/react-drawarea.git",
+  "homepage": "git+https://github.com/bgonp/react-drawarea.git#readme",
   "main": "build/index.js",
   "files": [
     "build/index.js",
