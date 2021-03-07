@@ -1,4 +1,4 @@
-# React Drawable
+# React Drawarea
 
 Simple package that provide React components to draw lines using mouse or touch events.
 
@@ -8,7 +8,7 @@ Simple package that provide React components to draw lines using mouse or touch 
 
 ## Install
 
-`npm install react-drawable --save`
+`npm install react-drawarea --save`
 
 ## Usage
 
@@ -17,15 +17,15 @@ Keep in mind this component **has no styles**, so you should set at least its si
 ### Simple:
 ```javascript
 import * as React from 'react'
-import { DrawProvider } from 'react-drawable'
+import { DrawProvider } from 'react-drawarea'
 
-export const Sample = () => <DrawProvider className="drawable" />
+export const Sample = () => <DrawProvider className="drawarea" />
 ```
 
 ### With options:
 ```javascript
 import * as React from 'react'
-import { DrawProvider } from 'react-drawable'
+import { DrawProvider } from 'react-drawarea'
 
 export const Sample = () => {
   const [paused, setPaused] = React.useState(false)
@@ -34,7 +34,7 @@ export const Sample = () => {
   return (
     <>
       <DrawProvider
-        className="drawable"
+        className="drawarea"
         color="#ba324f"
         disabled={paused}
         hidden={hidden}
@@ -50,7 +50,7 @@ export const Sample = () => {
 ### Reset and undo buttons:
 ```javascript
 import * as React from 'react'
-import { DrawContext, DrawProvider } from 'react-drawable'
+import { DrawContext, DrawProvider } from 'react-drawarea'
 
 const Buttons = () => {
   const { reset, undo } = React.useContext(DrawContext)
@@ -64,7 +64,7 @@ const Buttons = () => {
 }
 
 export const Sample = () => (
-  <DrawProvider className="drawable">
+  <DrawProvider className="drawarea">
     <img src="background.png" />
     <Buttons />
   </DrawProvider>
