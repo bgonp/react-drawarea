@@ -1,12 +1,13 @@
 {
   "name": "react-drawarea",
-  "version": "1.0.4",
-  "description": "React canvas to draw with mouse or touch events",
+  "version": "1.0.5",
+  "description": "React components to draw with mouse or touch events",
   "author": {
     "name": "Borja González",
     "url": "https://github.com/bgonp"
   },
   "repository": "git+https://github.com/bgonp/react-drawarea.git",
+  "bugs": "git+https://github.com/bgonp/react-drawarea/issues",
   "homepage": "git+https://github.com/bgonp/react-drawarea.git#readme",
   "main": "build/index.js",
   "files": [
@@ -34,12 +35,11 @@
     "eslint-plugin-promise": "4.3.1",
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "4.2.0",
+    "prop-types": ">=15.6.2",
     "react": ">=16.8.0"
   },
-  "dependencies": {
-    "prop-types": "15.7.2"
-  },
   "peerDependencies": {
+    "prop-types": ">=15.6.2",
     "react": ">=16.8.0"
   }
 }
