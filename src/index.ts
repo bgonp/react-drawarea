@@ -1,3 +1,4 @@
-import { DrawContext, DrawProvider } from './DrawContext'
+import DrawArea from './DrawArea'
+import DrawContext from './DrawContext'
 
-export { DrawContext, DrawProvider }
+export { DrawArea, DrawContext }
