@@ -5,7 +5,7 @@ import Drawable from './Drawable'
 import DrawContext from './DrawContext'
 import Drawed from './Drawed'
 
-import { Lines, Point } from './types'
+import { Line, Lines, Point } from './types'
 
 type Props = {
   className?: string
@@ -24,30 +24,25 @@ const DrawArea: FC<Props> = ({
   children,
 }) => {
   const [lines, setLines] = useState<Lines>([])
-  const [isDrawing, setIsDrawing] = useState<boolean>(false)
+  const [currentLine, setCurrentLine] = useState<Line>([])
 
   const reset = () => setLines([])
 
   const undo = () => setLines(lines.slice(0, -1))
 
-  const finishLine = () => setIsDrawing(false)
-
-  const addPoint = (newPoint: Point) => {
-    if (isDrawing) {
-      const prevLines = [...lines]
-      const lastLine = prevLines.pop()
-      setLines(prevLines.concat([lastLine.concat(newPoint)]))
-    } else {
-      setIsDrawing(true)
-      setLines([...lines, [newPoint]])
-    }
+  const finishLine = () => {
+    if (currentLine.length > 1) setLines([...lines, currentLine])
+    setCurrentLine([])
   }
+
+  const addPoint = (newPoint: Point) =>
+    setCurrentLine([...currentLine, newPoint])
 
   const content = hidden
     ? null
     : (
         <div className={className}>
-          <Drawed color={color} lines={lines} thickness={thickness} />
+          <Drawed color={color} lines={[...lines, currentLine]} thickness={thickness} />
           {disabled || <Drawable addPoint={addPoint} finishLine={finishLine} />}
         </div>
       )
@@ -57,7 +52,7 @@ const DrawArea: FC<Props> = ({
   return (
     <DrawContext.Provider value={{
       lines,
-      isDrawing,
+      isDrawing: currentLine.length > 0,
       reset,
       undo,
     }}>
