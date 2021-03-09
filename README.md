@@ -2,11 +2,15 @@
 
 Simple package that provide React components to draw lines using mouse or touch events.
 
+## Demo
+
+Take a look to this tool in action [**HERE**](https://drawarea.vercel.app/).
+
 ## Prerequisites
 
 - React >= 16.8
 
-## Install
+## Installation
 
 `npm install react-drawarea --save`
 
