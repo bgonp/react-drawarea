@@ -24,25 +24,22 @@ const DrawArea: FC<Props> = ({
   children,
 }) => {
   const [lines, setLines] = useState<Lines>([])
-  const [currentLine, setCurrentLine] = useState<Line>([])
+  const [newLine, setNewLine] = useState<Line>([])
+  const allLines = newLine.length === 0 ? lines : [...lines, newLine]
 
   const reset = () => setLines([])
-
   const undo = () => setLines(lines.slice(0, -1))
-
   const finishLine = () => {
-    if (currentLine.length > 1) setLines([...lines, currentLine])
-    setCurrentLine([])
+    if (newLine.length > 1) setLines(allLines)
+    setNewLine([])
   }
-
-  const addPoint = (newPoint: Point) =>
-    setCurrentLine([...currentLine, newPoint])
+  const addPoint = (newPoint: Point) => setNewLine([...newLine, newPoint])
 
   const content = hidden
     ? null
     : (
         <div className={className}>
-          <Drawed color={color} lines={[...lines, currentLine]} thickness={thickness} />
+          <Drawed color={color} lines={allLines} thickness={thickness} />
           {disabled || <Drawable addPoint={addPoint} finishLine={finishLine} />}
         </div>
       )
@@ -51,8 +48,8 @@ const DrawArea: FC<Props> = ({
 
   return (
     <DrawContext.Provider value={{
-      lines,
-      isDrawing: currentLine.length > 0,
+      lines: allLines,
+      isDrawing: newLine.length > 0,
       reset,
       undo,
     }}>
