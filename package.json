@@ -1,6 +1,6 @@
 {
   "name": "react-drawarea",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "React components to draw with mouse or touch events",
   "author": {
     "name": "Borja González",

@@ -17,6 +17,7 @@ type Props = {
 const style: CSSProperties = {
   position: 'absolute',
   inset: 0,
+  overscrollBehavior: 'contain',
 }
 
 const getCoordinates = (event: MouseEvent | TouchEvent): [number, number] | null => {
