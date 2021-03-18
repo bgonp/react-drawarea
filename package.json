@@ -1,6 +1,6 @@
 {
   "name": "react-drawarea",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "React components to draw with mouse or touch events",
   "author": {
     "name": "Borja González",
@@ -29,7 +29,7 @@
     "@types/react-dom": "17.0.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
-    "esbuild": "0.8.56",
+    "esbuild": "0.9.3",
     "eslint": "7.21.0",
     "eslint-config-standard": "16.0.2",
     "eslint-plugin-import": "2.22.1",
