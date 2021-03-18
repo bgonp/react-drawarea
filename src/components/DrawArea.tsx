@@ -22,13 +22,20 @@ const DrawArea: FC<Props> = ({
   thickness = 10,
   children,
 }) => {
-  const { isDrawing, lines, addPoint, finishLine, reset, undo } = useDrawArea()
+  const {
+    isDrawing,
+    lines,
+    addPoint,
+    finishLine,
+    reset,
+    undo,
+  } = useDrawArea({ color, thickness })
 
   const content = hidden
     ? null
     : (
         <div className={className}>
-          <Drawed color={color} lines={lines} thickness={thickness} />
+          <Drawed lines={lines} />
           {disabled || <Drawable addPoint={addPoint} finishLine={finishLine} />}
         </div>
       )

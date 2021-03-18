@@ -1,6 +1,11 @@
 import { useCallback, useMemo, useState } from 'react'
 
-import { Line, Lines, Point } from 'types'
+import { Lines, Point } from 'types'
+
+type UseDrawAreaParams = {
+  color: string
+  thickness: number
+}
 
 type UseDrawAreaType = {
   isDrawing: boolean
@@ -11,32 +16,32 @@ type UseDrawAreaType = {
   undo: () => void
 }
 
-const useDrawArea = (): UseDrawAreaType => {
+const useDrawArea = ({ color, thickness }: UseDrawAreaParams): UseDrawAreaType => {
   const [lines, setLines] = useState<Lines>([])
-  const [newLine, setNewLine] = useState<Line>([])
+  const [points, setPoints] = useState<Point[]>([])
 
   const allLines: Lines = useMemo(
-    () => newLine.length === 0 ? lines : [...lines, newLine],
-    [lines, newLine]
+    () => points.length === 0 ? lines : [...lines, { color, points, thickness }],
+    [color, thickness, lines, points]
   )
 
-  const isDrawing: boolean = newLine.length > 0
+  const isDrawing: boolean = points.length > 0
 
-  const addPoint = useCallback(
-    (newPoint: Point) => setNewLine([...newLine, newPoint]),
-    [newLine]
+  const addPoint: (point: Point) => void = useCallback(
+    (newPoint: Point) => setPoints([...points, newPoint]),
+    [points]
   )
 
-  const finishLine = useCallback(
+  const finishLine: () => void = useCallback(
     () => {
-      if (newLine.length > 1) setLines(allLines)
-      setNewLine([])
-    }, [allLines, newLine]
+      if (points.length > 1) setLines(allLines)
+      setPoints([])
+    }, [allLines, points]
   )
 
-  const reset = useCallback(() => setLines([]), [])
+  const reset: () => void = useCallback(() => setLines([]), [])
 
-  const undo = useCallback(() => setLines(lines.slice(0, -1)), [lines])
+  const undo: () => void = useCallback(() => setLines(lines.slice(0, -1)), [lines])
 
   return {
     isDrawing,

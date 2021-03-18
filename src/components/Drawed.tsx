@@ -1,11 +1,9 @@
 import React, { CSSProperties, FC } from 'react'
 
-import { Lines, Line } from 'types'
+import { Lines, Point } from 'types'
 
 type Props = {
-  color: string
   lines: Lines
-  thickness: number
 }
 
 const style: CSSProperties = {
@@ -13,16 +11,16 @@ const style: CSSProperties = {
   width: '100%',
 }
 
-const lineToString = (line: Line): string =>
-  'M ' + line.map(point => `${point.x} ${point.y}`).join(' L ')
+const pointsToString = (points: Point[]): string =>
+  'M ' + points.map(point => `${point.x} ${point.y}`).join(' L ')
 
-const Drawed: FC<Props> = ({ color, lines, thickness }) => (
+const Drawed: FC<Props> = ({ lines }) => (
   <svg style={style}>
-    {lines.map((line, index) =>
+    {lines.map(({ color, points, thickness }, index) =>
       <path
         key={index}
-        d={lineToString(line)}
-        fill='none'
+        d={pointsToString(points)}
+        fill="none"
         strokeLinecap="round"
         stroke={color}
         strokeWidth={thickness}

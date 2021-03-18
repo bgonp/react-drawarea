@@ -2,22 +2,22 @@ import { RefObject, MouseEvent, TouchEvent, useState } from 'react'
 
 import { Point } from 'types'
 
-type UseDrawableType = {
-  startDrawing: (event: MouseEvent | TouchEvent) => void
-  keepDrawing: (event: MouseEvent | TouchEvent) => void
-  endDrawing: () => void
-}
-
 type UseDrawableProps = {
   ref: RefObject<HTMLDivElement>
   addPoint: (point: Point) => void
   finishLine: () => void
 }
 
+type UseDrawableType = {
+  startDrawing: (event: MouseEvent | TouchEvent) => void
+  keepDrawing: (event: MouseEvent | TouchEvent) => void
+  endDrawing: () => void
+}
+
 const getCoordinates = (event: MouseEvent | TouchEvent): [number, number] | null => {
-  if (event instanceof MouseEvent && event.button === 0) {
+  if ('button' in event && event.button === 0) {
     return [event.clientX, event.clientY]
-  } else if (event instanceof TouchEvent && event.touches.length > 0) {
+  } else if ('touches' in event && event.touches.length > 0) {
     return [event.touches[0].clientX, event.touches[0].clientY]
   }
   return null
