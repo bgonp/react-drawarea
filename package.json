@@ -10,13 +10,15 @@
   "bugs": "git+https://github.com/bgonp/react-drawarea/issues",
   "homepage": "git+https://github.com/bgonp/react-drawarea.git#readme",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "files": [
     "build/index.js",
+    "build/index.d.js",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
-    "build": "node ./esbuild.js",
+    "build": "tsc && node ./esbuild.js",
     "prepare": "npm run build"
   },
   "keywords": [],
@@ -36,7 +38,8 @@
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "prop-types": ">=15.6.2",
-    "react": ">=16.8.0"
+    "react": ">=16.8.0",
+    "typescript": "4.2.3"
   },
   "peerDependencies": {
     "prop-types": ">=15.6.2",

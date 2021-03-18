@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "jsx": "react-jsx",
+    "lib": ["dom", "esnext"],
+    "module": "commonjs",
+    "out": "./build/index.d.ts",
+    "strict": true,
+    "target": "es5",
+    "esModuleInterop": true,
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}
