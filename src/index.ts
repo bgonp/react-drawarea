@@ -1,4 +1,4 @@
-import DrawArea from './DrawArea'
-import DrawContext from './DrawContext'
+import DrawArea from 'components/DrawArea'
+import DrawContext from 'contexts/DrawContext'
 
 export { DrawArea, DrawContext }

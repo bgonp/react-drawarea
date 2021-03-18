@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-import { Lines } from './types'
+import { Lines } from 'types'
 
 type DrawContextType = {
   lines: Lines
@@ -9,6 +9,6 @@ type DrawContextType = {
   undo: () => void
 }
 
-const DrawContext = createContext<DrawContextType>(null)
+const DrawContext = createContext<DrawContextType | null>(null)
 
 export default DrawContext

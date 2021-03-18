@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC } from 'react'
 
-import { Lines, Line } from './types'
+import { Lines, Line } from 'types'
 
 type Props = {
   color: string
@@ -26,7 +26,7 @@ const Drawed: FC<Props> = ({ color, lines, thickness }) => (
         strokeLinecap="round"
         stroke={color}
         strokeWidth={thickness}
-      />,
+      />
     )}
   </svg>
 )
